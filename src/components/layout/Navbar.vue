@@ -6,7 +6,8 @@
     <screenfull class='screenfull'></screenfull>
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+        <!--<img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">-->
+        <img class="user-avatar" src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif">
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
@@ -25,8 +26,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Levelbar from './Levelbar'
-import TabsView from './TabsView'
+import Levelbar from '../Levelbar'
+import TabsView from '../TabsView'
 import Hamburger from '../Hamburger'
 import Screenfull from '../Screenfull'
 
@@ -37,12 +38,16 @@ export default {
     Hamburger,
     Screenfull
   },
+  data() {
+    return {
+      'name': 'laravue',
+      'avatar': ''
+    }
+  },
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'name',
-      'avatar'
-    ])
+    sidebar() {
+      return this.$store.state.app.sidebar
+    }
   },
   methods: {
     toggleSideBar() {

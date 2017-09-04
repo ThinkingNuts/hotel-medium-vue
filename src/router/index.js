@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 const Login = resolve => require(['../views/account/Login'], resolve) //懒加载
+const Layout = resolve => require(['../views/layout/Layout'], resolve)
 
 Vue.use(Router)
 
@@ -14,6 +15,11 @@ const router = new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/home',
+      name: 'Dashboard',
+      component: Layout,
     }
   ]
 })

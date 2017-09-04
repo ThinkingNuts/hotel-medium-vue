@@ -10,13 +10,17 @@ import SidebarItem from './SidebarItem'
 
 export default {
   components: { SidebarItem },
+  data() {
+    return {
+      'permission_routers': '',
+    }
+  },
   computed: {
-    ...mapGetters([
-      'permission_routers',
-      'sidebar'
-    ]),
     isCollapse() {
       return !this.sidebar.opened
+    },
+    sidebar() {
+      return this.$store.state.app.sidebar
     }
   }
 }
