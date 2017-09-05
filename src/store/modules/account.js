@@ -63,7 +63,7 @@ export default {
   },
   actions: {
     accountLoginSubmit({ commit }, params) {
-      api.login(params).then((response) => {
+      api.account.login(params).then((response) => {
         if (response.data.status) {
           console.log(response.data);
           commit(types.ACCOUNT_AUTH_STATUS_CHANGED, response.data);
